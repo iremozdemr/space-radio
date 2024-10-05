@@ -99,27 +99,46 @@ const planetInfo = {
 
 const PlanetViewer = () => {
   const [currentPlanet, setCurrentPlanet] = useState('earth');
-  // const navigate = useNavigate();
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handlePlanetChange = (nextPlanet) => {
+    setIsAnimating(false); // Disable the animation
+    setTimeout(() => {
+      setCurrentPlanet(nextPlanet); // Change the planet
+      setIsAnimating(true); // Re-enable the animation
+    }, 50); // Short delay to ensure proper reset
+  };
+
+
+  // const handleNextPlanet = () => {
+  //   const planetNames = Object.keys(planetModels);
+  //   const currentIndex = planetNames.indexOf(currentPlanet);
+  //   const nextIndex = (currentIndex + 1) % planetNames.length;
+  //   setCurrentPlanet(planetNames[nextIndex]);
+  // };
 
   const handleNextPlanet = () => {
     const planetNames = Object.keys(planetModels);
     const currentIndex = planetNames.indexOf(currentPlanet);
     const nextIndex = (currentIndex + 1) % planetNames.length;
-    setCurrentPlanet(planetNames[nextIndex]);
+    handlePlanetChange(planetNames[nextIndex]);
   };
+
+  // const handlePrevPlanet = () => {
+  //   const planetNames = Object.keys(planetModels);
+  //   const currentIndex = planetNames.indexOf(currentPlanet);
+  //   const prevIndex = (currentIndex - 1 + planetNames.length) % planetNames.length;
+  //   setCurrentPlanet(planetNames[prevIndex]);
+  // };
 
   const handlePrevPlanet = () => {
     const planetNames = Object.keys(planetModels);
     const currentIndex = planetNames.indexOf(currentPlanet);
     const prevIndex = (currentIndex - 1 + planetNames.length) % planetNames.length;
-    setCurrentPlanet(planetNames[prevIndex]);
+    handlePlanetChange(planetNames[prevIndex]);
   };
 
   const { name, namesake, description, yearLength, distanceFromSun, moons } = planetInfo[currentPlanet];
-
-  // const handleLandOnPlanet = () => {
-  //   navigate('/planet', { state: { planet: currentPlanet } });
-  // };
 
   const [tasks, setTasks] = useState([]);
   const [taskInput, setTaskInput] = useState('');
@@ -210,22 +229,25 @@ const PlanetViewer = () => {
         <div className="aaa">
           <LeftRightButton
             onClick={handlePrevPlanet}
-            className="aaa"
             imgSrc={leftIcon}  // Sol buton için leftIcon.png kullanıyoruz
             imgAlt="Previous"
           />
         </div>
 
         {/* Model Viewer */}
-        <div className="model-viewer-container">
+        {/* <div className="model-viewer-container">
           <ModelViewer planet={planetModels[currentPlanet]} />
+        </div> */}
+
+        <div className={`model-viewer-container ${isAnimating ? 'animate' : ''}`}>
+          {/* Using key to force re-render */}
+          <ModelViewer key={currentPlanet} planet={planetModels[currentPlanet]} />
         </div>
 
         {/* Next Button - Sağ */}
         <div className="aaa">
           <LeftRightButton
             onClick={handleNextPlanet}
-            className="aaa"
             imgSrc={rightIcon}  // Sağ buton için rightIcon.png kullanıyoruz
             imgAlt="Next"
           />
