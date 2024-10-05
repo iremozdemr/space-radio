@@ -2,7 +2,6 @@ button {
     background: none; /* Arka planı kaldırır */
     border: none; /* Butonun kenar çizgilerini de kaldırır */
     padding: 0; /* Varsayılan padding'i kaldırır */
-    opacity: 0.5;
     pointer-events: auto;
 }
   
@@ -12,4 +11,5 @@ button img {
     height: auto;
     margin-top: -350px;
     z-index: 0;
+    opacity: 0.5;
 }

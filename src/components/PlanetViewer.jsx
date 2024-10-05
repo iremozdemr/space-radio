@@ -1,14 +1,13 @@
-// PlanetViewer.jsx
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import ModelViewer from './ModelViewers';
-import MainPageButton from './MainPageButton';
-import TodoList from './TodoList';
 import '../css/PlanetViewer.css';
 import LeftRightButton from './LeftRightButton';
-import rightIcon from "../../public/rightIcon.png";
 import leftIcon from "../../public/leftIcon.png";
+import rightIcon from "../../public/rightIcon.png";
 import Calendar from './Calendar';
+//import MainPageButton from './MainPageButton';
+//import TodoList from './TodoList';
+//import { useNavigate } from 'react-router-dom';
 
 const planetModels = {
   earth: '/models/earth.glb',
@@ -24,79 +23,83 @@ const planetModels = {
 
 const planetInfo = {
   earth: {
+    name: "Earth",
+    namesake: "VARIATION OF THE GROUND IN MANY LANGUAGES",
     description: "Earth — our home planet is the only place we know of so far that's inhabited by living things. It's also the only planet in our solar system with liquid water on the surface.",
     yearLength: "365.25",
-    distanceFromSun: "1 AU",
+    distanceFromSun: "1",
     moons: "1",
   },
   jupiter: {
+    name: "Jupiter",
+    namesake: "KING OF THE ROMAN GODS",
     description: "Jupiter is more than twice as massive than the other planets of our solar system combined. The giant planet's Great Red spot is a centuries-old storm bigger than Earth.",
     yearLength: "11.86",
-    distanceFromSun: "5.2 AU",
+    distanceFromSun: "5.2",
     moons: "79",
   },
   mars: {
+    name: "Mars",
+    namesake: "ROMAN GOD OF WAR",
     description: "Mars is a dusty, cold, desert world with a very thin atmosphere. There is strong evidence Mars was—billions of years ago—wetter and warmer, with a thicker atmosphere.",
-    yearLength: "1.88 days",
-    distanceFromSun: "1.5 AU",
+    yearLength: "1.88",
+    distanceFromSun: "1.5",
     moons: "2",
   },
   mercury: {
-    description: "Mars is often called the Red Planet due to its reddish appearance. It has the tallest volcano and the deepest canyon in the solar system.",
-    yearLength: "687 days",
-    distanceFromSun: "1.5 AU",
-    moons: "2",
+    name: "Mercury",
+    namesake: "ROMAN GOD OF SPEED",
+    description: "Mercury—the smallest planet in our solar system and closest to the Sun—is only slightly larger than Earth's Moon. Mercury is the fastest planet, zipping around the Sun every 88 Earth days.",
+    yearLength: "88",
+    distanceFromSun: "0.4",
+    moons: "0",
   },
   neptune: {
-    description: "Mars is often called the Red Planet due to its reddish appearance. It has the tallest volcano and the deepest canyon in the solar system.",
-    yearLength: "687 days",
-    distanceFromSun: "1.5 AU",
-    moons: "2",
+    name: "Neptune",
+    namesake: "ROMAN GOD OF THE SEA",
+    description: "Neptune—the eighth and most distant major planet orbiting our Sun—is dark, cold and whipped by supersonic winds. It was the first planet located through mathematical calculations, rather than by telescope.",
+    yearLength: "164.81",
+    distanceFromSun: "30.1",
+    moons: "14",
   },
   pluto: {
-    description: "Mars is often called the Red Planet due to its reddish appearance. It has the tallest volcano and the deepest canyon in the solar system.",
-    yearLength: "687 days",
-    distanceFromSun: "1.5 AU",
-    moons: "2",
+    name: "Pluto",
+    namesake: "ROMAN GOD OF THE UNDERWORLD",
+    description: "Pluto is a complex world of ice mountains and frozen plains. Once considered the ninth planet, Pluto is the largest member of the Kuiper Belt and the best known of a new class of worlds called dwarf planets.",
+    yearLength: "248.89",
+    distanceFromSun: "39",
+    moons: "5",
   },
   saturn: {
-    description: "Mars is often called the Red Planet due to its reddish appearance. It has the tallest volcano and the deepest canyon in the solar system.",
-    yearLength: "687 days",
-    distanceFromSun: "1.5 AU",
-    moons: "2",
+    name: "Saturn",
+    namesake: "FATHER OF JUPITER",
+    description: "Adorned with a dazzling, complex system of icy rings, Saturn is unique in our solar system. The other giant planets have rings, but none are as spectacular as Saturn's.",
+    yearLength: "29.45",
+    distanceFromSun: "9.5",
+    moons: "62",
   },
   uranus: {
-    description: "Mars is often called the Red Planet due to its reddish appearance. It has the tallest volcano and the deepest canyon in the solar system.",
-    yearLength: "687 days",
-    distanceFromSun: "1.5 AU",
-    moons: "2",
+    name: "Uranus",
+    namesake: "GREEK GOD OF THE SKY",
+    description: "Uranus—seventh planet from the Sun—rotates at a nearly 90-degree angle from the plane of its orbit. This unique tilt makes Uranus appear to spin on its side.",
+    yearLength: "84",
+    distanceFromSun: "19.8",
+    moons: "27",
   },
   venus: {
-    description: "Mars is often called the Red Planet due to its reddish appearance. It has the tallest volcano and the deepest canyon in the solar system.",
-    yearLength: "687 days",
-    distanceFromSun: "1.5 AU",
-    moons: "2",
+    name: "Venus",
+    namesake: "ROMAN GODDESS OF LOVE",
+    description: "Venus spins slowly in the opposite direction from most planets. A thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system.",
+    yearLength: "225",
+    distanceFromSun: "0.7",
+    moons: "0",
   }
   // Add similar info for other planets...
 };
 
 const PlanetViewer = () => {
   const [currentPlanet, setCurrentPlanet] = useState('earth');
-  const navigate = useNavigate();
-
-  // const handleNextPlanet = () => {
-  //   const planetNames = Object.keys(planetModels);
-  //   const currentIndex = planetNames.indexOf(currentPlanet);
-  //   const nextIndex = (currentIndex + 1) % planetNames.length;
-  //   setCurrentPlanet(planetNames[nextIndex]);
-  // };
-
-  // const handlePrevPlanet = () => {
-  //   const planetNames = Object.keys(planetModels);
-  //   const currentIndex = planetNames.indexOf(currentPlanet);
-  //   const prevIndex = (currentIndex - 1 + planetNames.length) % planetNames.length;
-  //   setCurrentPlanet(planetNames[prevIndex]);
-  // };
+  // const navigate = useNavigate();
 
   const handleNextPlanet = () => {
     const planetNames = Object.keys(planetModels);
@@ -112,11 +115,11 @@ const PlanetViewer = () => {
     setCurrentPlanet(planetNames[prevIndex]);
   };
 
-  const { description, yearLength, distanceFromSun, moons } = planetInfo[currentPlanet];
+  const { name, namesake, description, yearLength, distanceFromSun, moons } = planetInfo[currentPlanet];
 
-  const handleLandOnPlanet = () => {
-    navigate('/planet', { state: { planet: currentPlanet } });
-  };
+  // const handleLandOnPlanet = () => {
+  //   navigate('/planet', { state: { planet: currentPlanet } });
+  // };
 
   const [tasks, setTasks] = useState([]);
   const [taskInput, setTaskInput] = useState('');
@@ -161,7 +164,7 @@ const PlanetViewer = () => {
         <div className="metrics">
             <div className="metric-item">
                 <div className="data">{yearLength}</div>
-                <div className="metric-label small-text">DAYS</div>
+                <div className="metric-label small-text">EARTH DAYS</div>
                 <div className="small-text">Length of Year</div>
             </div>
 
@@ -179,7 +182,8 @@ const PlanetViewer = () => {
       </div>
 
       <div className="planet-name">
-        <h1 className='exo-2-bold-text1'>Earth</h1>
+        <h1  className='exo-2-bold-text1'>{name}</h1>
+        <h3  className='exo-2-bold-text1'>{namesake}</h3>
       </div>
 
       <div className='div-spotify'>
@@ -207,7 +211,7 @@ const PlanetViewer = () => {
           <LeftRightButton
             onClick={handlePrevPlanet}
             className="aaa"
-            imgSrc={"leftIcon.png"}  // Sol buton için leftIcon.png kullanıyoruz
+            imgSrc={leftIcon}  // Sol buton için leftIcon.png kullanıyoruz
             imgAlt="Previous"
           />
         </div>

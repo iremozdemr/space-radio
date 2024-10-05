@@ -145,7 +145,6 @@
   }
 }
 
-
 /*en son eklediğim kodlar:*/
 .div-flexbox{
   margin-top: 20px;
@@ -176,9 +175,6 @@
   height: 100%;
   border: none;
 }
-
-
-
 
 .container {
   text-align: center;
@@ -216,8 +212,6 @@
   margin-top: 5px;
 }
 
-
-
 #second-column .todo-container > h2{
   font: inherit;
   color: white;
@@ -228,6 +222,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  flex-direction: column;
   width: 200px;
   height: 200px;
   color: white;
@@ -237,9 +233,231 @@
   font-size: 50px;
 }
 
+.planet-name h3{
+  opacity: 0.5;
+}
+
 .exo-2-bold-text1 {
   font-family: "Exo 2", sans-serif;
   font-optical-sizing: auto;
   font-weight: 506;
   font-style: normal;
+}
+
+/* Base styles for larger screens */
+@media (min-width: 1200px) {
+  /* Desktop large screens - Already handled by your current styles */
+}
+
+/* For medium screens (tablets, smaller desktops) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .planet-viewer-wrapper {
+    gap: 200px; /* Adjust gap between elements */
+  }
+
+  .div-flexbox {
+    gap: 100px; /* Decrease gap */
+  }
+
+  .model-viewer-container {
+    margin-top: -250px; /* Adjust margin to fit the model viewer */
+    width: 350px;
+    height: 350px;
+  }
+
+  #first-column {
+    margin-top: 0px;
+    gap: 100px;
+  }
+
+  #second-column .todo-container {
+    margin-top: -400px;
+  }
+}
+
+/* For small screens (phones) */
+@media (max-width: 767px) {
+  .planet-viewer-wrapper {
+    flex-direction: column; /* Stack elements vertically */
+    gap: 50px;
+  }
+
+  .div-flexbox {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .model-viewer-container {
+    margin-top: 0px; /* Reset margin for smaller screens */
+    width: 250px;
+    height: 250px;
+  }
+
+  .planet-name {
+    width: 100%;
+    height: auto;
+  }
+
+  .planet-name h1 {
+    font-size: 30px; /* Adjust font size */
+  }
+
+  .planet-name h3 {
+    font-size: 16px;
+  }
+
+  .div-spotify {
+    height: 200px;
+  }
+
+  #second-column .todo-container {
+    margin-top: 0px;
+    gap: 30px;
+  }
+
+  .metrics {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .metric-item {
+    margin-bottom: 10px;
+  }
+}
+
+/* For very small screens (extra small phones) */
+@media (max-width: 480px) {
+  .planet-viewer-wrapper {
+    gap: 20px;
+  }
+
+  .div-flexbox {
+    gap: 20px;
+  }
+
+  .model-viewer-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .planet-name h1 {
+    font-size: 24px; /* Further adjust font size */
+  }
+
+  .planet-name h3 {
+    font-size: 12px;
+  }
+
+  .div-spotify {
+    height: 150px;
+  }
+}
+
+/* Base styles for larger screens */
+@media (min-width: 1200px) {
+  /* Desktop large screens - Already handled by your current styles */
+}
+
+/* For medium screens (tablets, smaller desktops) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .planet-viewer-wrapper {
+    gap: 200px; /* Adjust gap between elements */
+  }
+
+  .div-flexbox {
+    gap: 100px; /* Decrease gap */
+  }
+
+  .model-viewer-container {
+    margin-top: -250px; /* Adjust margin to fit the model viewer */
+    width: 350px;
+    height: 350px;
+  }
+
+  #first-column {
+    margin-top: 0px;
+    gap: 100px;
+  }
+
+  #second-column .todo-container {
+    margin-top: -400px;
+  }
+}
+
+/* For small screens (phones) */
+@media (max-width: 767px) {
+  .planet-viewer-wrapper {
+    flex-direction: column; /* Stack elements vertically */
+    gap: 50px;
+  }
+
+  .div-flexbox {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .model-viewer-container {
+    margin-top: 0px; /* Reset margin for smaller screens */
+    width: 250px;
+    height: 250px;
+  }
+
+  .planet-name {
+    width: 100%;
+    height: auto;
+  }
+
+  .planet-name h1 {
+    font-size: 30px; /* Adjust font size */
+  }
+
+  .planet-name h3 {
+    font-size: 16px;
+  }
+
+  .div-spotify {
+    height: 200px;
+  }
+
+  #second-column .todo-container {
+    margin-top: 0px;
+    gap: 30px;
+  }
+
+  .metrics {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .metric-item {
+    margin-bottom: 10px;
+  }
+}
+
+/* For very small screens (extra small phones) */
+@media (max-width: 480px) {
+  .planet-viewer-wrapper {
+    gap: 20px;
+  }
+
+  .div-flexbox {
+    gap: 20px;
+  }
+
+  .model-viewer-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .planet-name h1 {
+    font-size: 24px; /* Further adjust font size */
+  }
+
+  .planet-name h3 {
+    font-size: 12px;
+  }
+
+  .div-spotify {
+    height: 150px;
+  }
 }
