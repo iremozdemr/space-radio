@@ -1,0 +1,74 @@
+.calendar-container {
+    width: 250px;
+    margin: 0 auto;
+    /* font-family: Arial, sans-serif; */
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    border-radius: 10px;
+    padding: 10px;
+
+    margin-right: 20px;
+}
+  
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #5592c5;
+}
+  
+.calendar-header h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #5592c5; /* Başlık rengini turuncu yap */
+}
+  
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    text-align: center;
+}
+  
+.calendar-day {
+    font-weight: bold;
+    color: white;
+    opacity: 0.5;
+}
+  
+.weekend {
+    color: lightgray; /* Hafta sonu için gri renk */
+}
+  
+.calendar-date {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    color: white;
+}
+  
+.calendar-date.today {
+    background-color: #5592c5; /* Bugünü turuncu renkle vurgula */
+    color: black;
+}
+  
+button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: inherit;
+    font: inherit;
+}
+  
+button:hover {
+    color: #5592c5;
+    color: inherit;
+    font: inherit;
+}  

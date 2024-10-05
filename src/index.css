@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+main {
+    padding-top: 120px; 
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;  /* Yatay kaydırmayı devre dışı bırak */
+    overflow-y: auto;    /* Dikey kaydırma aktif */
+    background-color: black; /* Siyah arka plan */
+    position:absolute;
+}

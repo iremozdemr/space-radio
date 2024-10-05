@@ -1,0 +1,75 @@
+.todo-container {
+    background-color: #2d2d34;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    padding: 20px;
+    /* position: absolute; */
+    overflow: auto; /* İçerik taşarsa kaydırma */
+    resize: both;   /* Her iki yönden de boyutlandırılabilir */
+    min-width: 200px; /* Minimum genişlik */
+    min-height: 200px; /* Minimum yükseklik */
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #a1a1a6;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 10px;
+    padding: 0;
+}
+
+ul li {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+ul li.completed .task-text {
+    text-decoration: line-through;
+    color: #a1a1a6;
+}
+
+ul li .checkbox {
+    margin-right: 10px;
+}
+
+ul li .task-text {
+    flex-grow: 1;
+}
+
+ul li .delete {
+    color: #5592c5;
+    cursor: pointer;
+    transition: color 0.3s;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+ul li .delete:hover {
+    color: #1d5787;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #3b3b45;
+    color: #a1a1a6;
+}

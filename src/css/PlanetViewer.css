@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@506&display=swap');
+
+/* Genel reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/* Planet Viewer Wrapper */
+.planet-viewer-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;  
+  width: 100vw;  
+  padding: 0px;
+
+  gap: 400px;
+}
+
+/* Model Viewer */
+.model-viewer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px; /* Başlangıçta gezegen modelinin genişliği */
+  height: 500px;
+}
+
+.model-viewer-container model-viewer {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+/* Previous Button */
+/* .button-left {
+  position: absolute;
+  left: 10%;
+  transform: translateY(-50%);
+  top: 50%;
+} */
+
+/* Next Button */
+/* .button-right {
+  position: absolute;
+  right: 10%;
+  transform: translateY(-50%);
+  top: 50%;
+} */
+
+/* Land on the Planet Button */
+.button-bottom {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Animasyon için Overlay */
+.animation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Three.js kanvasını tam ekran yap */
+.webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2001;
+}
+
+/* Animasyon alanının görünürlüğünü yönet */
+.space {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 24px;
+  z-index: 1001;
+}
+
+/* Butonların arka planda kalmaması için diğer öğelere düşük z-index verilebilir */
+.button-container {
+  position: relative;
+  z-index: 1002;
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 1024px) {
+  .model-viewer-container {
+      width: 400px;
+      height: 400px;
+  }
+
+  .button-left, .button-right {
+      left: 5%;
+      right: 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .model-viewer-container {
+      width: 300px;
+      height: 300px;
+  }
+
+  .button-left, .button-right {
+      left: 2.5%;
+      right: 2.5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .model-viewer-container {
+      width: 250px;
+      height: 250px;
+  }
+
+  .button-left, .button-right {
+      left: 2%;
+      right: 2%;
+  }
+
+  .main-page-button {
+      width: 90%;
+      font-size: 14px;
+  }
+}
+
+
+/*en son eklediğim kodlar:*/
+.div-flexbox{
+  margin-top: 20px;
+  display: flex;
+  gap: 600px;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.model-viewer-container{
+  margin-top: -400px;
+}
+
+#first-column{
+  margin-top: -70px;
+  z-index: 0;
+  gap: 200px;
+}
+
+#second-column .todo-container{
+  margin-top: -600px;
+  z-index: 100;
+}
+
+#spotify {
+  border-radius: 12px; /* Köşeleri yuvarla */
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
+
+
+.container {
+  text-align: center;
+  max-width: 400px;
+}
+
+.info {
+  margin-bottom: 20px;
+  font-size: 1.0em;
+}
+
+.data {
+  font-size: 1.7em;
+  color: #5592c5;
+}
+
+.small-text {
+  font-size: 0.7em;
+  color: grey;
+}
+
+.metrics {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.metric-item {
+  text-align: center;
+}
+
+.metric-label {
+  font-size: 0.9em;
+  color: grey;
+  margin-top: 5px;
+}
+
+
+
+#second-column .todo-container > h2{
+  font: inherit;
+  color: white;
+  font-size: 18px;
+}
+
+.planet-name{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  color: white;
+}
+
+.planet-name h1{
+  font-size: 50px;
+}
+
+.exo-2-bold-text1 {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 506;
+  font-style: normal;
+}

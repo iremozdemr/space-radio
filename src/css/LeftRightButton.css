@@ -1,0 +1,15 @@
+button {
+    background: none; /* Arka planı kaldırır */
+    border: none; /* Butonun kenar çizgilerini de kaldırır */
+    padding: 0; /* Varsayılan padding'i kaldırır */
+    opacity: 0.5;
+    pointer-events: auto;
+}
+  
+button img {
+    display: inline-block; /* Görselin buton içinde düzgün görünmesini sağlar */
+    width: 50px; /* Görselin boyutunu ayarlayabilirsin */
+    height: auto;
+    margin-top: -350px;
+    z-index: 0;
+}

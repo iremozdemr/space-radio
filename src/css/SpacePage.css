@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .space-page {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Yıldızlı arka plan */
+  .star-background {
+    background-color: black; /* Varsayılan star canvas */
+  }
+
+
+/*#################################################################### Navbar bölgesini siliyor ####################################################################*/
+
+.app-layout {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .navbar-visible {
+    position: relative;
+    z-index: 10;
+    height: 60px; /* Örnek navbar yüksekliği */
+  }
+  
+  .main-content {
+    position: relative;
+    flex-grow: 1; /* Kalan tüm alanı kapla */
+    z-index: 0;
+  }
+  
+  .main-content.full-screen {
+    height: 100vh; /* Navbar yokken tam ekran yap */
+    padding-top: 0; /* Navbar’ın boşluğunu sıfırla */
+  }
+  
+  .space-page {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Sayfa taşmalarını engelle */
+  }
+  
+/*#################################################################### Navbar bölgesini siliyor ####################################################################*/
+
+.space-page {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Tüm ekranı kapla */
+    overflow: hidden; /* Sayfa taşmalarını engellemek için */
+}
+
+.draggable {
+    cursor: move;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.resizable {
+    position: relative;
+}
+
+#spotify {
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+.todo-container {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 300px;
+    height: 300px;
+    background-color: #2d2d34;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    color: white;
+    resize: both;
+    overflow: auto;
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #a1a1a6;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #3b3b45;
+    color: #a1a1a6;
+}
+
+/* Planet Viewer Konteyneri */
+.planet-viewer-container {
+    position: absolute;
+    right: 20px;  /* Sağ kenara hizala */
+    top: 50%;  /* Dikey ortala */
+    transform: translateY(-50%);  /* Dik eksende ortala */
+    width: 300px;  /* Gezegen genişliği */
+    height: 300px;  /* Gezegen yüksekliği */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1); 
+}
+
+iframe {
+    display: inline-block;
+    width: 300px;
+    height: 400px;
+}
+
+iframe#spotify {
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .planet-viewer-container {
+        width: 200px;  /* Mobilde boyutları küçült */
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .planet-viewer-container {
+        width: 150px;  /* Daha küçük mobil ekranlar için */
+        height: 150px;
+    }
+}

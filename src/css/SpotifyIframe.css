@@ -1,0 +1,26 @@
+.spotify-wrapper {
+    background-color: transparent; /* Arka planı tamamen şeffaf yapıyoruz */
+    position: absolute;
+    resize: both;  /* Sadece frame boyutunu büyütme/küçültme */
+    overflow: hidden; /* İçerik taşarsa gizleme */
+    display: inline-block; /* Dışarıdaki boşluğu engelliyor */
+    cursor: move; /* Sürükleme için uygun bir işaretçi */
+}
+
+.spotify-drag-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: move;
+    z-index: 1;
+    pointer-events: none; /* Kullanıcı olaylarını engelle, iframe etkileşimi sağlar */
+}
+
+#spotify {
+    border-radius: 12px; /* Köşeleri yuvarla */
+    width: 100%;
+    height: 100%;
+    border: none;
+}
