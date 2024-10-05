@@ -244,62 +244,90 @@
   font-style: normal;
 }
 
-/* Base styles for larger screens */
+/* Base styles for large screens (above 1200px) */
 @media (min-width: 1200px) {
-  /* Desktop large screens - Already handled by your current styles */
-}
-
-/* For medium screens (tablets, smaller desktops) */
-@media (max-width: 1199px) and (min-width: 768px) {
-  .planet-viewer-wrapper {
-    gap: 200px; /* Adjust gap between elements */
+  /* Keep original styling */
+  .model-viewer-container {
+    width: 500px;
+    height: 500px;
   }
 
   .div-flexbox {
-    gap: 100px; /* Decrease gap */
+    gap: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
 
+  #second-column .todo-container {
+    margin-top: -600px;
+  }
+}
+
+/* For medium screens (768px to 1199px - tablets/smaller desktops) */
+@media (max-width: 1199px) and (min-width: 768px) {
   .model-viewer-container {
-    margin-top: -250px; /* Adjust margin to fit the model viewer */
     width: 350px;
     height: 350px;
   }
 
-  #first-column {
-    margin-top: 0px;
+  .planet-viewer-wrapper {
     gap: 100px;
   }
 
+  .div-flexbox {
+    gap: 100px;
+    display: block; /* Stack content vertically */
+  }
+
+  #first-column {
+    margin-top: 0px;
+  }
+
   #second-column .todo-container {
-    margin-top: -400px;
+    margin-top: 0px; /* No negative margin to avoid overlap */
+  }
+
+  .planet-name h1 {
+    font-size: 40px;
+  }
+
+  .planet-name h3 {
+    font-size: 20px;
   }
 }
 
-/* For small screens (phones) */
+/* For small screens (480px to 767px - mobile devices) */
 @media (max-width: 767px) {
   .planet-viewer-wrapper {
-    flex-direction: column; /* Stack elements vertically */
     gap: 50px;
+    display: block; /* Stack vertically */
   }
 
   .div-flexbox {
-    flex-direction: column;
-    gap: 50px;
+    display: block;
+    gap: 20px;
   }
 
   .model-viewer-container {
-    margin-top: 0px; /* Reset margin for smaller screens */
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto; /* Center the content */
+  }
+
+  /* Hide the left and right buttons */
+  .aaa {
+    display: none;
   }
 
   .planet-name {
     width: 100%;
     height: auto;
+    text-align: center;
   }
 
   .planet-name h1 {
-    font-size: 30px; /* Adjust font size */
+    font-size: 30px;
   }
 
   .planet-name h3 {
@@ -308,11 +336,77 @@
 
   .div-spotify {
     height: 200px;
+    margin: 0 auto;
   }
 
   #second-column .todo-container {
-    margin-top: 0px;
-    gap: 30px;
+    margin-top: 20px;
+  }
+
+  .metrics {
+    flex-direction: column;
+    align-items: center;
+    display: none;
+  }
+
+  .metric-item {
+    margin-bottom: 10px;
+  }
+
+  .todo-container{
+    display: block;
+    margin: 0 auto;
+  }
+
+
+}
+
+/* For very small screens (below 480px - extra small phones) */
+@media (max-width: 480px) {
+  .todo-container{
+    display: block;
+  }
+  .planet-viewer-wrapper {
+    gap: 20px;
+    display: block; /* Stack vertically */
+  }
+
+  .div-flexbox {
+    gap: 20px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .model-viewer-container {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto; /* Center the content */
+  }
+
+  /* Hide the left and right buttons */
+  .aaa {
+    display: none;
+  }
+
+  .planet-name h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .planet-name h3 {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .div-spotify {
+    height: 150px;
+    margin: 0 auto;
+  }
+
+  #second-column .todo-container {
+    display: block;
+    align-self: center;
+    margin-top: 10px;
   }
 
   .metrics {
@@ -322,142 +416,5 @@
 
   .metric-item {
     margin-bottom: 10px;
-  }
-}
-
-/* For very small screens (extra small phones) */
-@media (max-width: 480px) {
-  .planet-viewer-wrapper {
-    gap: 20px;
-  }
-
-  .div-flexbox {
-    gap: 20px;
-  }
-
-  .model-viewer-container {
-    width: 200px;
-    height: 200px;
-  }
-
-  .planet-name h1 {
-    font-size: 24px; /* Further adjust font size */
-  }
-
-  .planet-name h3 {
-    font-size: 12px;
-  }
-
-  .div-spotify {
-    height: 150px;
-  }
-}
-
-/* Base styles for larger screens */
-@media (min-width: 1200px) {
-  /* Desktop large screens - Already handled by your current styles */
-}
-
-/* For medium screens (tablets, smaller desktops) */
-@media (max-width: 1199px) and (min-width: 768px) {
-  .planet-viewer-wrapper {
-    gap: 200px; /* Adjust gap between elements */
-  }
-
-  .div-flexbox {
-    gap: 100px; /* Decrease gap */
-  }
-
-  .model-viewer-container {
-    margin-top: -250px; /* Adjust margin to fit the model viewer */
-    width: 350px;
-    height: 350px;
-  }
-
-  #first-column {
-    margin-top: 0px;
-    gap: 100px;
-  }
-
-  #second-column .todo-container {
-    margin-top: -400px;
-  }
-}
-
-/* For small screens (phones) */
-@media (max-width: 767px) {
-  .planet-viewer-wrapper {
-    flex-direction: column; /* Stack elements vertically */
-    gap: 50px;
-  }
-
-  .div-flexbox {
-    flex-direction: column;
-    gap: 50px;
-  }
-
-  .model-viewer-container {
-    margin-top: 0px; /* Reset margin for smaller screens */
-    width: 250px;
-    height: 250px;
-  }
-
-  .planet-name {
-    width: 100%;
-    height: auto;
-  }
-
-  .planet-name h1 {
-    font-size: 30px; /* Adjust font size */
-  }
-
-  .planet-name h3 {
-    font-size: 16px;
-  }
-
-  .div-spotify {
-    height: 200px;
-  }
-
-  #second-column .todo-container {
-    margin-top: 0px;
-    gap: 30px;
-  }
-
-  .metrics {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .metric-item {
-    margin-bottom: 10px;
-  }
-}
-
-/* For very small screens (extra small phones) */
-@media (max-width: 480px) {
-  .planet-viewer-wrapper {
-    gap: 20px;
-  }
-
-  .div-flexbox {
-    gap: 20px;
-  }
-
-  .model-viewer-container {
-    width: 200px;
-    height: 200px;
-  }
-
-  .planet-name h1 {
-    font-size: 24px; /* Further adjust font size */
-  }
-
-  .planet-name h3 {
-    font-size: 12px;
-  }
-
-  .div-spotify {
-    height: 150px;
   }
 }
