@@ -1,0 +1,59 @@
+/*orbits.css*/
+/* --------------------------------------------------------------------------- stretched orbits */
+.scale-stretched #mercury.orbit {
+    width: 32em;
+    height: 32em;
+    margin-top: -16em;
+    margin-left: -16em;
+  }
+  .scale-stretched #venus.orbit {
+    width: 40em;
+    height: 40em;
+    margin-top: -20em;
+    margin-left: -20em;
+  }
+  .scale-stretched #earth.orbit {
+    width: 56em;
+    height: 56em;
+    margin-top: -28em;
+    margin-left: -28em;
+  }
+  .scale-stretched #earth .orbit {
+   /* Moon */
+    width: 6em;
+    height: 6em;
+    margin-top: -3em;
+    margin-left: -3em;
+  }
+  .scale-stretched #mars.orbit {
+    width: 72em;
+    height: 72em;
+    margin-top: -36em;
+    margin-left: -36em;
+  }
+  .scale-stretched #jupiter.orbit {
+    width: 100em;
+    height: 100em;
+    margin-top: -50em;
+    margin-left: -50em;
+  }
+  .scale-stretched #saturn.orbit {
+    width: 150em;
+    height: 150em;
+    margin-top: -75em;
+    margin-left: -75em;
+  }
+  .scale-stretched #uranus.orbit {
+    width: 186em;
+    height: 186em;
+    margin-top: -93em;
+    margin-left: -93em;
+  }
+  .scale-stretched #neptune.orbit {
+    width: 210em;
+    height: 210em;
+    margin-top: -105em;
+    margin-left: -105em;
+  }
+  /* --------------------------------------------------------------------------- scaled orbits */
+  /* --------------------------------------------------------------------------- size scale orbits */

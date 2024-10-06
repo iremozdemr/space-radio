@@ -1,0 +1,38 @@
+/*sizes.css*/
+/* --------------------------------------------------------------------------- planets sizes */
+/* --------------------------------------------------------------------------- stretched sizes */
+.scale-stretched #sun {
+    font-size: 24em;
+  }
+  .scale-stretched #mercury .planet {
+    font-size: 1.5em;
+  }
+  .scale-stretched #venus .planet {
+    font-size: 3.72em;
+  }
+  .scale-stretched #earth .planet {
+    font-size: 3.92em;
+  }
+  .scale-stretched #earth .moon {
+    font-size: 1.2em;
+  }
+  .scale-stretched #mars .planet {
+    font-size: 2.9em;
+  }
+  .scale-stretched #jupiter .planet {
+    font-size: 12em;
+  }
+  .scale-stretched #saturn .planet {
+    font-size: 10.8em;
+  }
+  .scale-stretched #uranus .planet {
+    font-size: 4.68em;
+  }
+  .scale-stretched #neptune .planet {
+    font-size: 4.9em;
+  }
+  /* --------------------------------------------------------------------------- scaled sizes */
+  /* (planets radius * 2) * ratio */
+  /*$distanceScaleRatio: 0.000075em;
+  */
+  

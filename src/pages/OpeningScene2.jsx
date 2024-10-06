@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import MainPageButton from '../components/MainPageButton';
 import Scene from '../components/Scene';
 import { sendAnimate } from '../components/js/portal/portal';
 import '../css/PlanetViewer.css'; 
@@ -9,26 +8,24 @@ const OpeningScene2 = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const navigate = useNavigate();
 
-  const handleLandOnPlanet = () => {
-    console.log("Animasyon başlatılıyor");
-    setIsAnimating(true);
-    sendAnimate(() => {
-      console.log("Animasyon tamamlandı, yönlendiriliyor");
-      navigate('/SolarSystemPage', { state: { planet: "earth" } });
-      setIsAnimating(false);
-    });
-  };
+  useEffect(() => {
+    const startAnimation = () => {
+      console.log("Animasyon başlatılıyor");
+      setIsAnimating(true);
+      sendAnimate(() => {
+        console.log("Animasyon tamamlandı, yönlendiriliyor");
+        navigate('/SolarSystemPage', { state: { planet: "earth" } });
+        setIsAnimating(false);
+      });
+    };
+
+    startAnimation(); // Sayfa yüklendiğinde animasyonu başlat
+  }, [navigate]); // Bu sadece navigate değiştiğinde tekrar tetiklenir
 
   return (
     <>
       <div>
         <p>opening scene 2 page</p>
-      </div>
-  
-      <div className="button-bottom">
-        <MainPageButton onClick={handleLandOnPlanet} className="large-button">
-          Isinlan!!!
-        </MainPageButton>
       </div>
 
       {isAnimating && (
