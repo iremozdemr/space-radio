@@ -366,7 +366,9 @@
     margin: 0 auto;
   }
 
-
+  .custom-div {
+    margin-left: 0px;
+  }
 }
 
 /* For very small screens (below 480px - extra small phones) */
@@ -424,6 +426,10 @@
 
   .metric-item {
     margin-bottom: 10px;
+  }
+
+  .custom-div {
+    margin-left: 0px;
   }
 }
 
