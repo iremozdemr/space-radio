@@ -7,9 +7,9 @@ const PlanetOrbit = ({ id, name, hasMoon, hasRing }) => {
       <div className="pos">
         <div className="planet">
           <img src={`/images/p-${id}.png`} alt={name} />
-          {hasMoon && (
+          {/* {hasMoon && (
             <img src="/images/moon.png" alt="Moon" className="moon" />
-          )}
+          )} */}
         </div>
       </div>
     </div>
