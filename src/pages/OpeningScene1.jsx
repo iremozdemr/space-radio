@@ -59,7 +59,7 @@ const OpeningScene1 = () => {
         className={isFading ? 'fade-out' : 'fade-in'} // Apply the appropriate class based on fading state
       />
       <div className='scene-text-div'>
-        <p>scene1</p>
+        {/* <p>scene1</p> */}
       </div>
       {/* <button onClick={handleButtonClick}>Go to Other Screen</button> */}
     </div>
