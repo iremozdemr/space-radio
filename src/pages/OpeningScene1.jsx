@@ -29,12 +29,12 @@ const OpeningScene1 = () => {
 
   return (
     <div className='image-button-container'>
-      <img
-        src={currentImage}
-        alt="Scene"
-        className={isFading ? 'fade-out' : 'fade-in'} // Apply the appropriate class based on fading state
-      />
-      <button onClick={handleButtonClick}>Go to Other Screen</button>
+        <img
+          src={currentImage}
+          alt="Scene"
+          className={isFading ? 'fade-out' : 'fade-in'} // Apply the appropriate class based on fading state
+        />
+        <button onClick={handleButtonClick}>Go to Other Screen</button>
     </div>
   );
 };
