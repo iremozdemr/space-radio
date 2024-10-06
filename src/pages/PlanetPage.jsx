@@ -1,10 +1,22 @@
-import { useState } from 'react';
+// PlanetPage.jsx
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import '../css/PlanetPage.css';
 
 const PlanetPage = () => {
+  const location = useLocation();
+  const { planet } = location.state || { planet: 'earth' }; // Gezegen bilgisini alıyoruz
   const [tasks, setTasks] = useState([]);
   const [taskInput, setTaskInput] = useState('');
   const completedTasksCount = tasks.filter(task => task.completed).length;
+
+  console.log('PlanetPage component rendered'); // Bileşenin render edildiğini logluyoruz
+
+
+  useEffect(() => {
+    console.log(`Planet Page loaded for planet: ${planet}`); // Gezegenin doğru aktarılıp aktarılmadığını kontrol edelim
+  }, [planet]);
+
 
   // Yeni görev ekleme işlevi
   const addTask = () => {

@@ -26,6 +26,8 @@ const AppLayout = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<AuthPage />} />
+          <Route path="/" element={<SolarSystemPage />} />
+          <Route path="/PlanetViewer" element={<PlanetViewer />} /> {/* Route tanımı */}
         </Routes>
       </main>
     </div>
@@ -35,6 +37,7 @@ const AppLayout = () => {
 const App = () => {
   return (
     <Router>
+      
       <AppLayout />
     </Router>
   );

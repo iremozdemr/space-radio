@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+// PlanetViewer.jsx
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import ModelViewer from './ModelViewers';
 import '../css/PlanetViewer.css';
 import LeftRightButton from './LeftRightButton';
 import leftIcon from "../../public/leftIcon.png";
 import rightIcon from "../../public/rightIcon.png";
 import Calendar from './Calendar';
-//import MainPageButton from './MainPageButton';
-//import TodoList from './TodoList';
-//import { useNavigate } from 'react-router-dom';
 
 const planetModels = {
   earth: '/models/earth.glb',
@@ -98,24 +97,19 @@ const planetInfo = {
 };
 
 const PlanetViewer = () => {
-  const [currentPlanet, setCurrentPlanet] = useState('earth');
+  const location = useLocation();
+  const { planet } = location.state || { planet: 'earth' };
+
+  const [currentPlanet, setCurrentPlanet] = useState(planet);
   const [isAnimating, setIsAnimating] = useState(false);
 
   const handlePlanetChange = (nextPlanet) => {
-    setIsAnimating(false); // Disable the animation
+    setIsAnimating(false);
     setTimeout(() => {
-      setCurrentPlanet(nextPlanet); // Change the planet
-      setIsAnimating(true); // Re-enable the animation
-    }, 50); // Short delay to ensure proper reset
+      setCurrentPlanet(nextPlanet);
+      setIsAnimating(true);
+    }, 50);
   };
-
-
-  // const handleNextPlanet = () => {
-  //   const planetNames = Object.keys(planetModels);
-  //   const currentIndex = planetNames.indexOf(currentPlanet);
-  //   const nextIndex = (currentIndex + 1) % planetNames.length;
-  //   setCurrentPlanet(planetNames[nextIndex]);
-  // };
 
   const handleNextPlanet = () => {
     const planetNames = Object.keys(planetModels);
@@ -123,13 +117,6 @@ const PlanetViewer = () => {
     const nextIndex = (currentIndex + 1) % planetNames.length;
     handlePlanetChange(planetNames[nextIndex]);
   };
-
-  // const handlePrevPlanet = () => {
-  //   const planetNames = Object.keys(planetModels);
-  //   const currentIndex = planetNames.indexOf(currentPlanet);
-  //   const prevIndex = (currentIndex - 1 + planetNames.length) % planetNames.length;
-  //   setCurrentPlanet(planetNames[prevIndex]);
-  // };
 
   const handlePrevPlanet = () => {
     const planetNames = Object.keys(planetModels);
@@ -140,9 +127,14 @@ const PlanetViewer = () => {
 
   const { name, namesake, description, yearLength, distanceFromSun, moons } = planetInfo[currentPlanet];
 
+  // Görev yönetimi durumları
   const [tasks, setTasks] = useState([]);
   const [taskInput, setTaskInput] = useState('');
   const completedTasksCount = tasks.filter(task => task.completed).length;
+
+  useEffect(() => {
+    console.log(`Planet Viewer yüklendi: ${currentPlanet}`);
+  }, [currentPlanet]);
 
   // Yeni görev ekleme işlevi
   const addTask = () => {
@@ -175,133 +167,119 @@ const PlanetViewer = () => {
     <>
       <div className='div-flexbox' id='first-column'>
 
-      <div className="todo-container">
-        <div className="info">
-          {description}
+        <div className="todo-container">
+          <div className="info">
+            {description}
+          </div>
+
+          <div className="metrics">
+            <div className="metric-item">
+              <div className="data">{yearLength}</div>
+              <div className="metric-label small-text">EARTH DAYS</div>
+              <div className="small-text">Length of Year</div>
+            </div>
+
+            <div className="metric-item">
+              <div className="data">{distanceFromSun}</div>
+              <div className="metric-label small-text">AU</div>
+              <div className="small-text">Distance From Sun</div>
+            </div>
+
+            <div className="metric-item">
+              <div className="data">{moons}</div>
+              <div className="metric-label small-text">Moons</div>
+            </div>
+          </div>
         </div>
 
-        <div className="metrics">
-            <div className="metric-item">
-                <div className="data">{yearLength}</div>
-                <div className="metric-label small-text">EARTH DAYS</div>
-                <div className="small-text">Length of Year</div>
-            </div>
-
-            <div className="metric-item">
-                <div className="data">{distanceFromSun}</div>
-                <div className="metric-label small-text">AU</div>
-                <div className="small-text">Distance From Sun</div>
-            </div>
-
-            <div className="metric-item">
-                <div className="data">{moons}</div>
-                <div className="metric-label small-text">Moons</div>
-            </div>
+        <div className="planet-name">
+          <h1 className='exo-2-bold-text1'>{name}</h1>
+          <h3 className='exo-2-bold-text1'>{namesake}</h3>
         </div>
-      </div>
 
-      <div className="planet-name">
-        <h1  className='exo-2-bold-text1'>{name}</h1>
-        <h3  className='exo-2-bold-text1'>{namesake}</h3>
-      </div>
-
-      <div className='div-spotify'>
-      <iframe
-        id="spotify"
-        src="https://open.spotify.com/embed/playlist/2EIqlPcVMRx0MXU96szswx?utm_source=generator"
-        frameBorder="0"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy"
-        title="Spotify Playlist"
-        style={{
-          width: '100%',
-          height: '350px',
-          pointerEvents: 'auto', // Spotify iframe tıklanabilir
-        }}
-      />
-      </div>
+        <div className='div-spotify'>
+          <iframe
+            id="spotify"
+            src="https://open.spotify.com/embed/playlist/2EIqlPcVMRx0MXU96szswx?utm_source=generator"
+            frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            title="Spotify Playlist"
+            style={{
+              width: '100%',
+              height: '350px',
+              pointerEvents: 'auto',
+            }}
+          />
+        </div>
 
       </div>
 
       <div className="planet-viewer-wrapper">
 
-        {/* Previous Button - Sol */}
+        {/* Previous Button */}
         <div className="aaa">
           <LeftRightButton
             onClick={handlePrevPlanet}
-            imgSrc={leftIcon}  // Sol buton için leftIcon.png kullanıyoruz
+            imgSrc={leftIcon}
             imgAlt="Previous"
           />
         </div>
 
         {/* Model Viewer */}
-        {/* <div className="model-viewer-container">
-          <ModelViewer planet={planetModels[currentPlanet]} />
-        </div> */}
-
         <div className={`model-viewer-container ${isAnimating ? 'animate' : ''}`}>
-          {/* Using key to force re-render */}
           <ModelViewer key={currentPlanet} planet={planetModels[currentPlanet]} />
         </div>
 
-        {/* Next Button - Sağ */}
+        {/* Next Button */}
         <div className="aaa">
           <LeftRightButton
             onClick={handleNextPlanet}
-            imgSrc={rightIcon}  // Sağ buton için rightIcon.png kullanıyoruz
+            imgSrc={rightIcon}
             imgAlt="Next"
           />
         </div>
       </div>
 
-      {/* Land on the Planet Button
-      <div className="button-bottom">
-        <MainPageButton onClick={handleLandOnPlanet} className="large-button">
-          Land on the Planet
-        </MainPageButton>
-      </div> */}
-
       <div className='div-flexbox' id='second-column'>
-      <div className="todo-container">
-        <Calendar></Calendar>
-      </div>
+        <div className="todo-container">
+          <Calendar />
+        </div>
 
-      <div className="todo-container">
-        <h2>
-          completed tasks: <span id="completed-count">{completedTasksCount}</span> /{' '}
-          <span id="total-count">{tasks.length}</span>
-        </h2>
-        <ul id="task-list">
-          {tasks.map((task) => (
-            <li key={task.id} className={task.completed ? 'completed' : ''}>
-              <input
-                type="checkbox"
-                className="checkbox"
-                checked={task.completed}
-                onChange={() => toggleTask(task.id)}
-              />
-              <span className="task-text">{task.text}</span>
-              <span className="delete" onClick={() => removeTask(task.id)}>
-                &#x2716;
-              </span>
-            </li>
-          ))}
-        </ul>
-        <div className="input-group">
-          <input
-            type="text"
-            id="new-task"
-            placeholder="+ add new task"
-            value={taskInput}
-            onChange={(e) => setTaskInput(e.target.value)}
-            onKeyPress={(e) => e.key === 'Enter' && addTask()} // Enter tuşuna basıldığında tetikleniyor
-          />
+        <div className="todo-container">
+          <h2>
+            Completed Tasks: <span id="completed-count">{completedTasksCount}</span> /{' '}
+            <span id="total-count">{tasks.length}</span>
+          </h2>
+          <ul id="task-list">
+            {tasks.map((task) => (
+              <li key={task.id} className={task.completed ? 'completed' : ''}>
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  checked={task.completed}
+                  onChange={() => toggleTask(task.id)}
+                />
+                <span className="task-text">{task.text}</span>
+                <span className="delete" onClick={() => removeTask(task.id)}>
+                  &#x2716;
+                </span>
+              </li>
+            ))}
+          </ul>
+          <div className="input-group">
+            <input
+              type="text"
+              id="new-task"
+              placeholder="+ Add new task"
+              value={taskInput}
+              onChange={(e) => setTaskInput(e.target.value)}
+              onKeyPress={(e) => e.key === 'Enter' && addTask()}
+            />
+          </div>
         </div>
       </div>
-      
-      </div>
 
-      {/* Animasyonun uygulanacağı alan */}
       <div className="space">
       </div>
     </>

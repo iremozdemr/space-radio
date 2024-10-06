@@ -37,16 +37,20 @@
 	 font-weight: 300;
 	 background-color: #08090a;
 }
- #universe {
-	 z-index: 2;
-	 position: fixed;
-	 overflow: hidden;
-	 width: 100%;
-	 height: 100%;
-	 background-position: center 40%;
-	 background-repeat: no-repeat;
-	 background-size: cover;
+#universe {
+    z-index: 2;
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-position: center 40%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: translateY(-150px); /* İstediğiniz değere göre ayarlayın */
+    transition: transform 0.5s ease; /* Yumuşak geçiş için isteğe bağlı */
 }
+
+  
  #galaxy {
 	 position: relative;
 	 width: 100%;

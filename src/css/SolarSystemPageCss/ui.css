@@ -194,3 +194,44 @@ h1 {
 #data a.active {
   background-color: rgba(255, 255, 255, 0.2); /* Hover ve aktif durum arka plan rengi */
 }
+.button-bottom {
+  position: fixed;
+  bottom: 60px; /* Veri panelinin üstünde olacak şekilde ayarlayın */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001; /* data-panel-bottom'ın z-index'inden daha yüksek olmalı */
+}
+
+.data-panel-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Arka plan rengini ihtiyacınıza göre ayarlayın */
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  z-index: 1000; /* Diğer öğelerin üzerinde görünmesini sağlar */
+}
+.large-button {
+  padding: 14px 28px; /* Butonu biraz daha büyük yapar */
+  font-size: 18px; /* Yazı boyutunu büyütür */
+  background-color: transparent !important; /* Arka planı tamamen saydam yapar */
+  color: #ffffff !important; /* Yazı rengini tamamen beyaz yapar */
+  border: 2px solid rgba(255, 255, 255, 0.7); /* Beyaz ve hafif saydam sınır */
+  border-radius: 8px; /* Kenarları daha fazla yuvarlatır */
+  cursor: pointer;
+  transition: all 0.4s ease; /* Daha yumuşak geçiş sağlar */
+  text-align: center; /* Yazıyı ortalar */
+  text-decoration: none; /* Link altı çizgiyi kaldırır */
+  display: inline-block; /* Link davranışını buton gibi yapar */
+  margin-top: 20px; /* Üst tarafa biraz boşluk ekler */
+}
+
+.large-button:hover {
+  background-color: rgba(255, 255, 255, 0.15); /* Hover durumunda daha belirgin bir arka plan rengi */
+  border-color: rgba(255, 255, 255, 1); /* Sınırı daha belirgin hale getirir */
+  color: #ffffff; /* Hover durumunda yazı rengini beyaz yapar */
+  transform: scale(1.05); /* Butonu hafif büyütür */
+}
+
