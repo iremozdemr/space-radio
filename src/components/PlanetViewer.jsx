@@ -188,10 +188,17 @@ const PlanetViewer = () => {
       </div>
 
       <div className='div-flexbox' id='first-column'>
-        <div className="todo-container">
+        {/* <div className="todo-container">
         {!showCustomDiv && <Chatbox />}
 
-        </div>
+        </div> */}
+
+        {!showCustomDiv && (
+          <div className="todo-container">
+            <Chatbox />
+          </div>
+        )}
+
 
         <div className="planet-name">
           <h1 className='exo-2-bold-text1'>{name}</h1>
