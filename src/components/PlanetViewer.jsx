@@ -185,6 +185,7 @@ const PlanetViewer = () => {
           <span className="toggle-slider"></span>
          
         </label>
+        <p className='click-here'>change view</p>
       </div>
 
       <div className='div-flexbox' id='first-column'>

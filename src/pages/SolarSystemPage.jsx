@@ -131,7 +131,7 @@ const SolarSystemPage = () => {
       {/* "Gezegeni Görüntüle" Butonunu Veri Panelinin Üstüne Taşıyın */}
       <div className="button-bottom">
         <a onClick={handleLandOnPlanet} className="large-button">
-          Gezegeni Görüntüle!!!
+          Look Closer!
         </a>
       </div>
 

@@ -505,3 +505,14 @@
 
   margin-left: 350px;
 }
+
+.click-here{
+  font-size: 2em;
+}
+
+.checkbox-container{
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
