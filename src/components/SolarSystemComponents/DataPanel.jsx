@@ -4,7 +4,7 @@ import React from 'react';
 // DataPanel.jsx içinde
 function DataPanel({ activePlanet, onSelectPlanet }) {
   const planets = [
-    'sun',
+    // 'sun',
     'mercury',
     'venus',
     'earth',

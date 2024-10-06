@@ -24,7 +24,7 @@ const Chatbox = () => {
       setMessages((prevMessages) => [...prevMessages, botMessage]);
     } catch (error) {
       console.error('Error communicating with backend:', error);
-      const errorMessage = { sender: 'bot', text: 'Üzgünüm, bir hata oluştu.' };
+      const errorMessage = { sender: 'bot', text: 'Sorry, an error occured.' };
       setMessages((prevMessages) => [...prevMessages, errorMessage]);
     } finally {
       setIsLoading(false);
@@ -40,7 +40,7 @@ const Chatbox = () => {
   return (
     <div className="chatbox-container">
       <div className="chatbox-header">
-        <h2>Sohbet</h2>
+        <h2>Ask AI</h2>
       </div>
       <div className="chatbox-messages">
         {messages.map((msg, index) => (
@@ -48,18 +48,18 @@ const Chatbox = () => {
             <span>{msg.text}</span>
           </div>
         ))}
-        {isLoading && <div className="message bot">Cevaplanıyor...</div>}
+        {isLoading && <div className="message bot">Thinking...</div>}
       </div>
       <div className="chatbox-input">
         <input
           type="text"
-          placeholder="Mesajınızı yazın..."
+          placeholder="Enter your message..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyPress={handleKeyPress}
         />
         <button onClick={sendMessage} disabled={isLoading}>
-          Gönder
+          Send
         </button>
       </div>
     </div>

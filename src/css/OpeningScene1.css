@@ -7,7 +7,7 @@
 }
   
 .image-button-container img {
-    width: 80%;
+    width: 70%;
     height: auto;
     border-radius: 10px;
     transition: opacity 1s ease-in-out; /* Smooth transition for fading */

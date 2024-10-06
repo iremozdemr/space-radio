@@ -240,6 +240,8 @@ const PlanetViewer = () => {
               </div>
             </div>
           </div>
+
+          
         )}
       </div>
 
