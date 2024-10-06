@@ -35,10 +35,6 @@ const OpeningScene1 = () => {
           setCurrentImage('./scene6.png'); // Change to the sixth image
           setCurrentStep(6); // Move to the next step
           break;
-        case 6:
-          setCurrentImage('./scene7.png'); // Change to the seventh image
-          setCurrentStep(7); // Final step
-          break;
         default:
           navigate('/OpeningScene2'); // Automatically navigate after all scenes
       }
