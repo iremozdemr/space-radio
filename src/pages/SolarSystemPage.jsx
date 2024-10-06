@@ -39,16 +39,16 @@ const SolarSystemPage = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // toggleData ve dataOpen kaldırıldı
-
   const toggleControls = (e) => {
     e.preventDefault();
     setControlsOpen((prev) => !prev);
   };
 
   const handleSelectPlanet = (planet) => {
+    console.log(`Selected planet: ${planet}`); // Log ekliyoruz
     setActivePlanet(planet);
   };
+  
 
   const handleToggleView = () => {
     setView3D((prev) => !prev);
@@ -64,7 +64,6 @@ const SolarSystemPage = () => {
 
   useEffect(() => {
     const container = document.getElementById('app-container');
-    // dataOpen ile ilgili sınıflar kaldırıldı
     if (controlsOpen) {
       container.classList.add('controls-open');
       container.classList.remove('controls-close');
@@ -110,8 +109,10 @@ const SolarSystemPage = () => {
 
   const handleLandOnPlanet = () => {
     console.log("Animasyon tamamlandı, yönlendiriliyor");
-    navigate('/PlanetViewer', { state: { planet: "earth" } });
+    console.log(`Navigating to PlanetPage with planet: ${activePlanet}`); // Log ekliyoruz
+    navigate('/PlanetViewer', { state: { planet: activePlanet } }); // Yönlendirme yolu düzeltilmiş
   };
+
 
   return (
     <>
@@ -127,15 +128,16 @@ const SolarSystemPage = () => {
         <Universe activePlanet={activePlanet} />
       </div>
 
+      {/* "Gezegeni Görüntüle" Butonunu Veri Panelinin Üstüne Taşıyın */}
+      <div className="button-bottom">
+        <a onClick={handleLandOnPlanet} className="large-button">
+          Gezegeni Görüntüle!!!
+        </a>
+      </div>
+
       {/* DataPanel'i sayfanın altına yerleştirin */}
       <div className="data-panel-bottom">
         <DataPanel activePlanet={activePlanet} onSelectPlanet={handleSelectPlanet} />
-      </div>
-
-      <div className="button-bottom">
-        <MainPageButton onClick={handleLandOnPlanet} className="large-button">
-          Gezegeni Görüntüle!!!
-        </MainPageButton>
       </div>
 
       <div className="space"></div>
