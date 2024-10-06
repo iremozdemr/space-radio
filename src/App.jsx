@@ -18,7 +18,6 @@ const AppLayout = () => {
       <main className={`main-content ${location.pathname === '/space' ? 'full-screen' : ''}`}>
         <StarsCanvas />
         <Routes>
-          {/* İlk sayfa olarak HelloWorld'i gösteriyoruz */}
           <Route path="/" element={<OpeningScene1 />} />
           <Route path="/OpeningScene2" element={<OpeningScene2 />} />
           <Route path="/SolarSystemPage" element={<SolarSystemPage />} /> 

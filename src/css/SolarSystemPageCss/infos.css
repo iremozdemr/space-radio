@@ -1,0 +1,32 @@
+/*infos.css*/
+/* --------------------------------------------------------------------------- speed */
+.set-speed dl.infos dd span:after {
+    content: 'Orbit Velocity';
+  }
+  .set-speed #sun dl.infos dd:after {
+    content: '0 km/h';
+  }
+  .set-speed #mercury dl.infos dd:after {
+    content: '170,503 km/h';
+  }
+  .set-speed #venus dl.infos dd:after {
+    content: '126,074 km/h';
+  }
+  .set-speed #earth dl.infos dd:after {
+    content: '107,218 km/h';
+  }
+  .set-speed #mars dl.infos dd:after {
+    content: '86,677 km/h';
+  }
+  .set-speed #jupiter dl.infos dd:after {
+    content: '47,002 km/h';
+  }
+  .set-speed #saturn dl.infos dd:after {
+    content: '34,701 km/h';
+  }
+  .set-speed #uranus dl.infos dd:after {
+    content: '24,477 km/h';
+  }
+  .set-speed #neptune dl.infos dd:after {
+    content: '19,566 km/h';
+  }
