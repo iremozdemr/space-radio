@@ -103,6 +103,8 @@ const PlanetViewer = () => {
   const [currentPlanet, setCurrentPlanet] = useState(planet);
   const [isAnimating, setIsAnimating] = useState(false);
 
+  const [showCustomDiv, setShowCustomDiv] = useState(false); // New state for checkbox
+
   const handlePlanetChange = (nextPlanet) => {
     setIsAnimating(false);
     setTimeout(() => {
@@ -163,10 +165,28 @@ const PlanetViewer = () => {
     );
   };
 
+  // Handler for checkbox change
+  const handleCheckboxChange = () => {
+    setShowCustomDiv(!showCustomDiv);
+  };
+
   return (
     <>
-      <div className='div-flexbox' id='first-column'>
+      {/* Checkbox Container */}
+      <div className="checkbox-container">
+        <label className="toggle-label">
+          <input
+            type="checkbox"
+            checked={showCustomDiv}
+            onChange={handleCheckboxChange}
+            className="toggle-checkbox"
+          />
+          <span className="toggle-slider"></span>
+         
+        </label>
+      </div>
 
+      <div className='div-flexbox' id='first-column'>
         <div className="todo-container">
           <div className="info">
             {description}
@@ -197,22 +217,49 @@ const PlanetViewer = () => {
           <h3 className='exo-2-bold-text1'>{namesake}</h3>
         </div>
 
-        <div className='div-spotify'>
-          <iframe
-            id="spotify"
-            src="https://open.spotify.com/embed/playlist/2EIqlPcVMRx0MXU96szswx?utm_source=generator"
-            frameBorder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-            title="Spotify Playlist"
-            style={{
-              width: '100%',
-              height: '350px',
-              pointerEvents: 'auto',
-            }}
-          />
-        </div>
+        {/* Conditionally render Spotify iframe or Custom Div */}
+        {!showCustomDiv ? (
+          <div className='div-spotify'>
+            <iframe
+              id="spotify"
+              src="https://open.spotify.com/embed/playlist/2EIqlPcVMRx0MXU96szswx?utm_source=generator"
+              frameBorder="0"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              title="Spotify Playlist"
+              style={{
+                width: '100%',
+                height: '350px',
+                pointerEvents: 'auto',
+              }}
+            />
+          </div>
+        ) : (
+          <div className="todo-container custom-div">
+            <div className="info">
+              {description}
+            </div>
 
+            <div className="metrics">
+              <div className="metric-item">
+                <div className="data">{yearLength}</div>
+                <div className="metric-label small-text">EARTH DAYS</div>
+                <div className="small-text">Length of Year</div>
+              </div>
+
+              <div className="metric-item">
+                <div className="data">{distanceFromSun}</div>
+                <div className="metric-label small-text">AU</div>
+                <div className="small-text">Distance From Sun</div>
+              </div>
+
+              <div className="metric-item">
+                <div className="data">{moons}</div>
+                <div className="metric-label small-text">Moons</div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="planet-viewer-wrapper">
@@ -241,44 +288,49 @@ const PlanetViewer = () => {
         </div>
       </div>
 
-      <div className='div-flexbox' id='second-column'>
-        <div className="todo-container">
-          <Calendar />
-        </div>
+      {/* Conditionally render second-column or nothing */}
+      {!showCustomDiv && (
+        <div className='div-flexbox' id='second-column'>
+          <div className="todo-container">
+            <Calendar />
+          </div>
 
-        <div className="todo-container">
-          <h2>
-            Completed Tasks: <span id="completed-count">{completedTasksCount}</span> /{' '}
-            <span id="total-count">{tasks.length}</span>
-          </h2>
-          <ul id="task-list">
-            {tasks.map((task) => (
-              <li key={task.id} className={task.completed ? 'completed' : ''}>
-                <input
-                  type="checkbox"
-                  className="checkbox"
-                  checked={task.completed}
-                  onChange={() => toggleTask(task.id)}
-                />
-                <span className="task-text">{task.text}</span>
-                <span className="delete" onClick={() => removeTask(task.id)}>
-                  &#x2716;
-                </span>
-              </li>
-            ))}
-          </ul>
-          <div className="input-group">
-            <input
-              type="text"
-              id="new-task"
-              placeholder="+ Add new task"
-              value={taskInput}
-              onChange={(e) => setTaskInput(e.target.value)}
-              onKeyPress={(e) => e.key === 'Enter' && addTask()}
-            />
+          <div className="todo-container">
+            <h2>
+              Completed Tasks: <span id="completed-count">{completedTasksCount}</span> /{' '}
+              <span id="total-count">{tasks.length}</span>
+            </h2>
+            <ul id="task-list">
+              {tasks.map((task) => (
+                <li key={task.id} className={task.completed ? 'completed' : ''}>
+                  <input
+                    type="checkbox"
+                    className="checkbox"
+                    checked={task.completed}
+                    onChange={() => toggleTask(task.id)}
+                  />
+                  <span className="task-text">{task.text}</span>
+                  <span className="delete" onClick={() => removeTask(task.id)}>
+                    &#x2716;
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <div className="input-group">
+              <input
+                type="text"
+                id="new-task"
+                placeholder="+ Add new task"
+                value={taskInput}
+                onChange={(e) => setTaskInput(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && addTask()}
+              />
+            </div>
           </div>
         </div>
-      </div>
+      )}
+
+      {/* Optionally, you can adjust the placement of the custom div here if needed */}
 
       <div className="space">
       </div>
