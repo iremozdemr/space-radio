@@ -183,7 +183,7 @@
 
 .info {
   margin-bottom: 20px;
-  font-size: 1.0em;
+  font-size: 1.5em;
 }
 
 .data {
@@ -200,6 +200,10 @@
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
+
+  font: inherit;
+
+  font-size: 1.8em;
 }
 
 .metric-item {
@@ -209,7 +213,9 @@
 .metric-label {
   font-size: 0.9em;
   color: grey;
-  margin-top: 5px;
+  margin-top: 10px;
+
+  margin-bottom: 10px;
 }
 
 #second-column .todo-container > h2{
