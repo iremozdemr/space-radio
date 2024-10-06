@@ -7,6 +7,7 @@ import LeftRightButton from './LeftRightButton';
 import leftIcon from "../../public/leftIcon.png";
 import rightIcon from "../../public/rightIcon.png";
 import Calendar from './Calendar';
+import Chatbox from './Chatbox'; 
 
 const planetModels = {
   earth: '/models/earth.glb',
@@ -188,28 +189,8 @@ const PlanetViewer = () => {
 
       <div className='div-flexbox' id='first-column'>
         <div className="todo-container">
-          <div className="info">
-            {description}
-          </div>
+        {!showCustomDiv && <Chatbox />}
 
-          <div className="metrics">
-            <div className="metric-item">
-              <div className="data">{yearLength}</div>
-              <div className="metric-label small-text">EARTH DAYS</div>
-              <div className="small-text">Length of Year</div>
-            </div>
-
-            <div className="metric-item">
-              <div className="data">{distanceFromSun}</div>
-              <div className="metric-label small-text">AU</div>
-              <div className="small-text">Distance From Sun</div>
-            </div>
-
-            <div className="metric-item">
-              <div className="data">{moons}</div>
-              <div className="metric-label small-text">Moons</div>
-            </div>
-          </div>
         </div>
 
         <div className="planet-name">

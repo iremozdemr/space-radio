@@ -1,0 +1,80 @@
+/* src/css/Chatbox.css */
+
+.chatbox-container {
+    width: 100%; /* Parent container'ın genişliğine uyum sağlar */
+    max-height: 400px;
+    background-color: #2d2d34;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    /* position: fixed; kaldırıldı */
+    /* bottom: 20px; kaldırıldı */
+    /* right: 20px; kaldırıldı */
+    /* Sabit konum yerine parent container'ın akışına göre yer alacak */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .chatbox-header {
+    background-color: #2d2d34;;
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .chatbox-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #2d2d34;;
+  }
+  
+  .message {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    max-width: 80%;
+    word-wrap: break-word;
+  }
+  
+  .message.user {
+    background-color: #5592c5;
+    color: white;
+    align-self: flex-end;
+  }
+  
+  .message.bot {
+    background-color: #e0e0e0;
+    color: black;
+    align-self: flex-start;
+  }
+  
+  .chatbox-input {
+    display: flex;
+    border-top: 1px solid #ccc;
+  }
+  
+  .chatbox-input input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-bottom-left-radius: 8px;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .chatbox-input button {
+    padding: 10px;
+    background-color: #5592c5;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-bottom-right-radius: 8px;
+  }
+  
+  .chatbox-input button:disabled {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+  }
+  
