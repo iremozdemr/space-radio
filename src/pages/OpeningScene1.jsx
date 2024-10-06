@@ -1,29 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../css/OpeningScene1.css'; 
+import '../css/OpeningScene1.css';
 
 const OpeningScene1 = () => {
   const [currentImage, setCurrentImage] = useState('./scene1.jpg'); // Initial image
+  const [isFading, setIsFading] = useState(false); // Track fading state
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Set a timeout to change the image after 3 seconds
     const timer = setTimeout(() => {
-      setCurrentImage('./scene2.jpg'); // Change to scene2.jpg after 3 seconds
-    }, 4000);
+      setIsFading(true); // Start fading out
+    }, 3000); // Wait for 3 seconds before fading out the first image
 
-    // Cleanup the timer if the component unmounts
-    return () => clearTimeout(timer);
-  }, []); // Empty dependency array means this runs once after component mounts
+    const imageChangeTimer = setTimeout(() => {
+      setCurrentImage('./scene2.jpg'); // Change to the second image after fade-out
+      setIsFading(false); // Fade in the new image
+    }, 4000); // Wait for 1 second for fade-out to complete before changing the image
+
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(imageChangeTimer);
+    };
+  }, []);
 
   const handleButtonClick = () => {
-    navigate('/OpeningScene2'); // Redirect to '/OpeningScene2' on button click
+    navigate('/OpeningScene2'); 
   };
 
   return (
     <div className='image-button-container'>
-      <img src={currentImage} alt="Scene" /> {/* Dynamically changing image */}
-      <button onClick={handleButtonClick}>Go to Other Screen</button> {/* Navigate to another screen on click */}
+      <img
+        src={currentImage}
+        alt="Scene"
+        className={isFading ? 'fade-out' : 'fade-in'} // Apply the appropriate class based on fading state
+      />
+      <button onClick={handleButtonClick}>Go to Other Screen</button>
     </div>
   );
 };

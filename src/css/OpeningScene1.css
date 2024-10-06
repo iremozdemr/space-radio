@@ -1,12 +1,23 @@
-.image-button-container{
+.image-button-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 30px;
 }
-
-.image-button-container img{
-    width: 70%;
+  
+.image-button-container img {
+    width: 80%;
     height: auto;
+    border-radius: 10px;
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+    transition: opacity 1s ease-in-out; /* Smooth transition for fading */
 }
+  
+.fade-in {
+    opacity: 1; /* Fully visible */
+}
+  
+.fade-out {
+    opacity: 0; /* Fully invisible */
+}  
