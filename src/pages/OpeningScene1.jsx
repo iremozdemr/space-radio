@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../css/OpeningScene1.css';
 
 const OpeningScene1 = () => {
-  const [currentImage, setCurrentImage] = useState('./scene1.jpg'); // Initial image
+  const [currentImage, setCurrentImage] = useState('./scene1.png'); // Initial image
   const [isFading, setIsFading] = useState(false); // Track fading state
   const navigate = useNavigate();
 
@@ -13,7 +13,7 @@ const OpeningScene1 = () => {
     }, 3000); // Wait for 3 seconds before fading out the first image
 
     const imageChangeTimer = setTimeout(() => {
-      setCurrentImage('./scene2.jpg'); // Change to the second image after fade-out
+      setCurrentImage('./scene2.png'); // Change to the second image after fade-out
       setIsFading(false); // Fade in the new image
     }, 4000); // Wait for 1 second for fade-out to complete before changing the image
 
